@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Carnival | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+    body {
+      background-color: #fef9f4;
+      color: #3e3e3e;
+    }
+header {
+  opacity: 0.95;
+  background: #3e2c27;
+  color: #fff;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  animation: slideDown 0.6s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+header h1:hover {
+  color: #ffd8a9;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd8a9;
+  transform: scale(1.1);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #3e2c27;
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  nav.active {
+    display: flex;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+}
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    section:nth-child(even) {
+      animation-delay: 0.3s;
+    }
+    section:nth-child(odd) {
+      animation-delay: 0.6s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero {
+      height: 90vh;
+      background: url('https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqGmxZao9tSjWI1XxGBKmWYwbwHP80Pbakx9LRFNy5u3g9ZFDNwq3uwthCX7uUiSxl55nHIBiHVRptKV3hbxMYvzAk9mvFSUMPCbWjV0BRTOxu2PwY7SjnezH2blyCaEVsoOgfX=s484-k-no') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    .btn {
+      background: #ff8c42;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #e6762b;
+      transform: scale(1.05);
+    }
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .menu-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+    }
+    .menu-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .menu-card h4 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.3rem;
+    }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+    .info-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.info-item {
+  background: #fff4e6;
+  border-left: 6px solid #ff8c42;
+  padding: 1rem 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-item:hover {
+  background: #ffe0c7;
+  transform: translateY(-5px);
+}
+
+@media (max-width: 600px) {
+  .info-item {
+    font-size: 0.95rem;
+  }
+}
+.contact-section {
+  background: #fffaf5;
+  padding-top: 4rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.contact-form {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contact-form button {
+  background: #ff8c42;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #e6762b;
+}
+
+.contact-map {
+  flex: 1 1 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-map {
+    height: 300px;
+  }
+}
+.footer {
+  background: #3e2c27;
+  color: #fff;
+  padding: 3rem 1rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.footer-left h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+}
+
+.footer-left p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-center li {
+  margin: 0.5rem 0;
+}
+
+.footer-center a {
+  color: #ffd8a9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-center a:hover {
+  color: #ffffff;
+}
+
+.footer-right .social-icons a {
+  margin-right: 1rem;
+  display: inline-block;
+}
+
+.footer-right .social-icons img {
+  padding-top: 50%;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.footer-right .social-icons img:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-right .social-icons a {
+    margin: 0 0.5rem;
+  }
+}
+  </style>
+  </head>
+<body>
+  <header>
+  <h1>Coffee Carnival</h1>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+  <section class="hero" id="home">
+    <div>
+      <h2>Your Daily Dose of Heaven</h2>
+      <p>Where every sip tells a story. Discover hand-crafted coffee made with passion, served with love.</p>
+      <!-- <button class="btn">Order Now</button> -->
+    </div>
+  </section>
+
+  <section class="section" id="menu">
+    <h3>Our Special Brews</h3>
+    <div class="menu-items">
+      <div class="menu-card">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrmDkteszrCFbGcMd_lGxXWAqrnWYKkF8IdzgkcSDv-q9qCZ7J7hkVaJBQrXQ1vOXwoJ_Ii1i3eCXnn3dd_vc5niZw44LNyxrNERhe76Zk7175xW6FKeMOVAgFzJWoAvfouP5kI=s846-k-no" alt="Latte">
+        <h4>Perri Perri French Fires</h4>
+        <p>Rick potato and adictive.</p>
+      </div>
+      <div class="menu-card">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqLpwOeadtTNypI62l8YQTIkYNzNE75QPz0sU20elck7o0Ks11KVdIkEairCZ5KUQUjdZW1EDSpRT-OwG7-P3i-BZb7qnU7ZCdL78L2VXN-BFU3-CDRG6INwtxDlDYw2kPwHeuT=s846-k-no" alt="Cappuccino">
+        <h4>Classic Cappuccino</h4>
+        <p>Perfect balance of espresso, steamed milk, and foam.</p>
+      </div>
+      <div class="menu-card">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqy0EkSB3znVj9prvwt1vuOXPGk5tDo_heFHMArS0i7TPVFmdZtAJu1AuEhNNqhh9h6eeMZp1aZcGGp6ANoci0Q1-uyFe02uxozJgVVk5KqL5cgWFy8sFcffw1gS7KFB9rAi-Q=s508-k-no" alt="Mocha">
+        <h4>Classic Breakfast Combo</h4>
+        <p>Espresso meets coco cookie for a decadent flavor blend.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery" data-aos="zoom-in-up">
+    <h3>Gallery</h3>
+    <div class="gallery">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrZyc7i2x4bJMmQPrPodlfraZYT6gf2TXM6xHrbyLmSDpvjoyx-TCroD4Sqyu0uIg_3EmbO6e-o5zBSilO48lt_1p4AZ0PsSo_SkEp8cwSGtlGHSsQ9BYgR_17zzBd5gCy1T8tO=s635-k-no" alt="Interior 1">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqa6-MVR9I39OuGazEcKUE5T7OU-MUlECllD_9i8PGYm7Yw8EIwy8fl788CluuoUsy_wI1iF-JA4jLp25LkmLJHkDBYvihNZbHe84cTYyASXlptt4QZYR9Gk2TLdZCOu6aDPH8X=s846-k-no" alt="Interior 1">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr1K4Pa0mpXpzpae109wPBzP1uKtQzJ976M7bu_HrCDxJAbhX2IPcadFJUDINzZqegkA12NiIlC9kLm7nhzjC28Yz19_R9ErPSLlwAzekIZ6uHc73sxZxZvKf5PO0Bkwqt6PmC9=s846-k-no" alt="Interior 1">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8gWlQodnG9ynFiicn7t7ExW3inzSvOdHIQxWybNb3NrObxjVDMBQLqKR0uCeSKsE3fNDo2ZIj4VRkwZRevQXCnKY1qJjjYwGr7TcO0YQcoXZzg0BrSzkCQRao-rBYJy13QVfR=s508-k-no" alt="Barista Work">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqaNZKhf3LZnFLqUJqkKW6nYFINRBGc7NAkgzEvODE_0mE--yeLkBbDIsr0UUKRc9ug9-HPIkeWR98m8wck3jGUDFFLeBU2J2nKznMQyW2LJzuLOJJezHVtbhDTxCGN1K5S1fHFFw=s846-k-no" alt="Seating Area">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npD3aOAUgjVMzMSGhmeFamhvuBxfTiNnZMUOcuyC0gqSnuj-Rdj7TAAETU6ae6QVUVy3oK62hedVtnWdlwxCBGIvhicaRKWxIclZG_A0f_PmsHPIYrJDJhXepABMfWl7r6yqgd3=s508-k-no" alt="Barista Work">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noGqc_dMoKWujE1xyQ77lxsdeFTa0UBQrDF_g7y33nYQ3oZvvfsqnICstXUsFpg5FHk0gsZaBZM7UlyGiiwEXbtqomsXqT-GTw75WP8Bda41LQew3i5vi0txWnMNpt3v2yyr8k9=s635-k-no" alt="Coffee Beans">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqkCBjIO4jpqCQ2LibfzBl7WUdA2L90xhYvwoCMDMdMVtlzsuLPZFaVVeUC23lVXBH0eBnxVn-U9cUQR1cL4zrqU_mCQf6MkPjYa7E_ApmU0pC2-Q-d_gOY9o-0SIFo6n7B5e9Zjg=s846-k-no" alt="Barista Work">
+    </div>
+  </section>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+   AOS.init();
+   document.getElementById('hamburger').addEventListener('click', function () {
+  document.getElementById('nav-menu').classList.toggle('active');
+});
+</script>
+  <section class="section" id="info" data-aos="fade-up">
+  <h3>About Our Coffee Place</h3>
+  <div class="info-list">
+    <div class="info-item">Wheelchair-accessible car park</div>
+    <div class="info-item">Outdoor seating</div>
+    <div class="info-item">Delivery & Takeaway</div>
+    <div class="info-item">Live performances</div>
+    <div class="info-item">Vegetarian options</div>
+    <div class="info-item">Wi-Fi / Free Wi-Fi</div>
+    <div class="info-item">Trendy and cozy interior</div>
+    <div class="info-item">Digital payments accepted</div>
+    <div class="info-item">Perfect for students & groups</div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact" data-aos="fade-up">
+  <h3>Contact Us</h3>
+  <div class="contact-container">
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.028558144307!2d72.5543028150036!3d23.09219998491895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f2b2c7ff21%3A0xf58ec4ab5d8508c0!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1718799051806!5m2!1sen!2sin"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-aos="fade-up">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h2>Coffee Carnival</h2>
+      <p>Where you can create memories for your future generations.</p>
+      <p>&copy; 2025 Coffee Carnival. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
